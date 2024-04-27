@@ -6,6 +6,6 @@ pub fn greet(name: &str) -> String {
 
 use crate::password_generator;
 #[tauri::command]
-pub fn generate_password(length: usize) -> String {
-    password_generator::generate_password(length)
+pub fn generate_password(length: usize, symbols: bool, numbers: bool, uppercase: bool, lowercase: bool) -> String {
+    password_generator::generate_password_extended(length, symbols, numbers, uppercase, lowercase)
 }

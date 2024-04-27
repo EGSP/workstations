@@ -12,7 +12,31 @@
   <div id="input_container">
     <label for="password" id="password_label">Password:</label>
     <input type="text" id="password" readonly aria-labelledby="password_label"></input>
-    <button id ="generate_password_button">Generate password</button>
+    <button id="generate_password_button">Generate password</button>
+    <form id="extended_options">
+      <div class="options_container">
+        <label for="length_slider">Length:</label>
+        <input type="range" id="length_slider" name="length" min="0" max="21" value="10" step="1" required></input>
+        <output for="length_slider" id="length_value">10</output>
+      </div>
+      <div class="options_container">
+        <label for="has_symbols">Has symbols:</label>
+        <input type="checkbox" id="has_symbols" name="has_symbols" checked></input>
+      </div>
+      <div class="options_container">
+        <label for="has_numbers">Has numbers:</label>
+        <input type="checkbox" id="has_numbers" name="has_numbers" checked></input>
+      </div>
+      <div class="options_container">
+        <label for="is_lowercase">Lowercase:</label>
+        <input type="checkbox" id="is_lowercase" name="is_lowercase" checked></input>
+      </div>
+      <div class="options_container">
+        <label for="is_uppercase">Uppercase:</label>
+        <input type="checkbox" id="is_uppercase" name="is_uppercase" checked></input>
+      </div>
+    </form>
+
   </div>
   <div id="output_container">
     <label for="secret" id="secret_label">Secret:</label>
@@ -23,3 +47,4 @@
 
 </html>
 
+<!--add containered checkboxes for each boolean argument in generate_password_extended function-->
