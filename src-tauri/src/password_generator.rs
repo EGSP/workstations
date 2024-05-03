@@ -1,5 +1,6 @@
 use rand::Rng;
 use rand::seq::SliceRandom;
+use tauri::api::dialog::message;
 pub fn generate_password(length: usize) -> String {
     const CHARSET: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZ\
                             abcdefghijklmnopqrstuvwxyz\
@@ -24,13 +25,16 @@ pub fn generate_password_extended(
     numbers: bool,
     uppercase: bool,
     lowercase: bool,
+    window: tauri::Window
 ) -> String {
     let mut password = String::with_capacity(length);
     let mut charsets: Vec<CharSet> = Vec::new();
 
     // check if at least one of the arguments is true
     if !special_symbols && !numbers && !uppercase && !lowercase {
-        panic!("At least one of the arguments must be true");
+        //panic!("At least one of the arguments must be true");
+        message(Some(&window),"Warning","At least one of the arguments must be true");
+        return String::new();
     }
 
     if special_symbols {
